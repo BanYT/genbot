@@ -50,7 +50,12 @@ message.channel.send(embed)
 	
 	
 	
-	 if (talkedRecently.has(msg.author.id)) {
+	 
+
+}
+
+
+if (talkedRecently.has(msg.author.id)) {
             msg.channel.send("Wait 1 minute before getting typing this again. - " + msg.author);
     } else {
 
@@ -64,8 +69,6 @@ message.channel.send(embed)
         }, 60000);
     }
 	
-
-}
 module.exports.help = {
 	name: "8ball",
 	alias: "8b"
