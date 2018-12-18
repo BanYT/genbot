@@ -2,6 +2,7 @@
 const token = process.env.token;
 const Discord = require("discord.js");
 const fs = require("fs");
+require('./util/cmdloader.js')(client);//requires the command loader
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 let cooldown = new Set();
