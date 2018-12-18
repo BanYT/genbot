@@ -3,6 +3,8 @@ const client = new Discord.Client();
 require('./util/cmdloader.js')(client);//requires the command loader
 let token = process.env.token;
 let prefix = "!";
+let cooldown = new Set();
+let cdseconds = 900;
 
 client.on('ready', () => {
 console.log('IM READY !');
@@ -43,7 +45,18 @@ let commandfile = client.commands.get(cmd);
   if(alias){
       alias.run(client,message,args);
   }
-//end of handler
+        
+          let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot,message,args);
+
+  setTimeout(() => {
+    cooldown.delete(message.author.id)
+  }, cdseconds * 1000)
+
 });
      
   client.login(process.env.token);
