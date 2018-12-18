@@ -1,12 +1,10 @@
-
-const token = process.env.token;
-const Discord = require("discord.js");
-const fs = require("fs");
-require('./util/cmdloader.js');//requires the command loader
-const bot = new Discord.Client();
-bot.commands = new Discord.Collection();
+Discord = require("discord.js");
+const client = new Discord.Client();
+require('./util/cmdloader.js')(client);//requires the command loader
+let token = process.env.token;
+let prefix = "!";
 let cooldown = new Set();
-let cdseconds = 5;
+let cdseconds = 900;
 
 client.on('ready', () => {
 console.log('IM READY !');
@@ -47,9 +45,9 @@ let commandfile = client.commands.get(cmd);
   if(alias){
       alias.run(client,message,args);
   }
-
-  
-
+        
+          
+        
 });
-
-client.login(process.env.token);
+     
+  client.login(process.env.token);
