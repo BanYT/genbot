@@ -7,14 +7,7 @@ let prefix = "!";
 
 client.on('ready', () => {
 console.log('IM READY !');
-client.user.setActivity(`Waiting My Owner`, { type: "Watching" });
-        setTimeout(game2, 20000)
-    });
-    
-    function game1() {
-        client.user.setActivity(`Waiting My Owner :(`, { type: "Watching" });
-        setTimeout(game2, 20000)
-    }
+
 
 client.on('message', message => {
  if (message.author.bot) return;
