@@ -5,8 +5,6 @@ let id = message.content.split(' ').slice(1,2).join(' ');
 let member = "@everyone";
   let dUser = message.guild.members.get(id);
   if(!message.member.permissions.has('ADMINISTRATOR')) return message.reply("**you cant Use This Command Because You Dont Have One From Those Roles Administrator**``/``**Owner**``/``**Moderator OR You Are Missing Administrator Permission**");
-  let dMsg = message.content.split(' ').slice(2).join(' ');
-  if(dMsg.length < 1) return message.reply('You must supply a message!')
   
   dUser.send(`${dUser} **This Is Moderator\Administrator\Owner**_${message.author}_**Sent You A Dm From Hes Server  Read It Carefully : ** >> ${dMsg}`)
   
