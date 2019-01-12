@@ -7,7 +7,7 @@ let prefix = "!";
 
 client.on('ready', () => {
 console.log('IM READY !');
-
+});
 
 client.on('message', message => {
  if (message.author.bot) return;
