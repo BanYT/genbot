@@ -12,7 +12,7 @@ client.user.setActivity(`Waiting My Owner`, { type: "Watching" });
     });
     
     function game1() {
-        client.user.setActivity(`Waiting My Owner :(, { type: "Watching" });
+        client.user.setActivity(`Waiting My Owner :(`, { type: "Watching" });
         setTimeout(game2, 20000)
     }
 
