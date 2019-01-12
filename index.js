@@ -3,27 +3,26 @@ const client = new Discord.Client();
 require('./util/cmdloader.js')(client);//requires the command loader
 let token = process.env.token;
 let prefix = "!";
-let cooldown = new Set();
-let cdseconds = 900;
+
 
 client.on('ready', () => {
 console.log('IM READY !');
-client.user.setActivity(`${client.guilds.size} Servers With ${client.users.size} Members`, { type: "Watching" });
+client.user.setActivity(`My Owner Sword Fighter#0001`, { type: "Watching" });
         setTimeout(game2, 20000)
     });
     
     function game1() {
-        client.user.setActivity(`Type .Help And See Full List Of My Commands`, { type: "Watching" });
+        client.user.setActivity(`Type !Help And See Full List Of My Commands`, { type: "Watching" });
         setTimeout(game2, 20000)
     }
     
     function game2() {
-        client.user.setActivity(`Mojang Premium Accounts From https://selly.gg/@BanGamer For Only 4€ Do Like Me!`, { type: "Buying" });
+        client.user.setActivity(`With My Owner C:`, { type: "Playing" });
         setTimeout(game3, 30000)
     }
     
     function game3() {
-       client.user.setActivity(`Responding For ${client.commands.size} commands`, { type: "Watching" });
+       client.user.setActivity(`to ${client.commands.size} commands`, { type: "Watching" });
         setTimeout(game1, 20000);//these times are in ms, so 30,000 = 30 seconds
     }      //seconds/1000 = ms
 client.on('message', message => {
