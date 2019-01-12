@@ -6,7 +6,7 @@ let member = "@everyone";
   let dUser = message.guild.members.get(id);
   if(!message.member.permissions.has('ADMINISTRATOR')) return message.reply("**you cant Use This Command Because You Dont Have One From Those Roles Administrator**``/``**Owner**``/``**Moderator OR You Are Missing Administrator Permission**");
   
-client.send_message(member, message)  
+client.send.message(member, message)  
 
   message.react('ðŸ‘Œ');
 	
