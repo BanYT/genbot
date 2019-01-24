@@ -9,8 +9,9 @@ module.exports.run = async (bot, message, args) => {
     }
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("**I Can't Find This User ! Mention The User To Be Able To Use This Command**");
+    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("**This User Cant Be Banned Because He Had A Role Highler Than You** ``/OR/`` **He Is The Owner Of This Server** ``/OR/`` **He Had Administrator Permission**");
     let bReason = args.slice(1).join(" ") || "None";
-     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("**This User Cant Be Banned Because He Had A Role Highler Than You** ``/OR/`` **He Is The Owner Of This Server** ``/OR/`` **He Had Administrator Permission**");
+    
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
     .setColor("RANDOM")

@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
+
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You Can't Use This Command Kiddo! Because Your Missing Administrator Permission");
     if(args[0] == "help"){
       message.reply("Usage: .kick <user> <reason>");
@@ -10,11 +11,11 @@ module.exports.run = async (bot, message, args) => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("**I Can't Find This User ! Mention The User To Be Able To Use This Command**");
     let kReason = args.slice(1).join(" ") || "None";
-    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("**This User Cant Be Kicked Because He Had A Role Highler Than You** ``/OR/`` **He Is The Owner Of This Server** ``/OR/`` **He Had Administrator Permission**");
+    if(kUser.hasPermission("ADMINISTRATOR")) return message.channel.send("**This User Cant Be Kicked Because He Had A Role Highler Than You** ``/OR/`` **He Is The Owner Of This Server** ``/OR/`` **He Had Administrator Permission**");
 
   
     let kickEmbed = new Discord.RichEmbed()
-    .setDescription("~Kick~")
+    .setDescription("~~Kick~~")
     .setColor("RANDOM")
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
     .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
@@ -28,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
     message.react('⚒');
+
 }
 
 
